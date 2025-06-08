@@ -2,8 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 
-# Create your views here.
-
 monthChallenges = {
     "january": "Learn Python",
     "february": "Walk 20 min",
@@ -38,7 +36,7 @@ def index(request):
 def monthlyChallenge(request, month):
     try:
         challenge = monthChallenges[month]
-        response_data = f"<h1>{challenge}</h1>"
+        return render(request, "challenges/challenge.html")
     except:
         return HttpResponseNotFound("Month not found")
 
