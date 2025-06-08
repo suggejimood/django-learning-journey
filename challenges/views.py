@@ -36,7 +36,7 @@ def index(request):
 def monthlyChallenge(request, month):
     try:
         challenge = monthChallenges[month]
-        return render(request, "challenges/challenge.html", {"text": challenge, "month": month.capitalize()})
+        return render(request, "challenges/challenge.html", {"text": challenge, "month": month})
     except:
         return HttpResponseNotFound("Month not found")
 
