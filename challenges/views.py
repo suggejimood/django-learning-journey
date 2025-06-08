@@ -14,24 +14,13 @@ monthChallenges = {
     "september": "Watch good movies",
     "october": "Fix broken cars",
     "novmeber": "Read new books",
-    "december": "Run in the forest"
+    "december": None
 }
 
 def index(request):
-    listItems = ""
     months = list(monthChallenges.keys())
 
-    for month in months:
-        capitilazedMonth = month.capitalize()
-        monthPath = reverse("month-challenge", args=[month])
-        listItems += f"<li> <a href=\"{monthPath}\">{capitilazedMonth}</a> </li>"
-
-    responseData = f"""
-    <h1>Months</h1>
-    <ul> {listItems} </ul>
-    """
-    
-    return HttpResponse(responseData)
+    return render(request, "challenges/index.html", {"months": months})
 
 def monthlyChallenge(request, month):
     try:
