@@ -5,6 +5,7 @@
     {% endblock %}
  
     {% block content %}
+        {% include "challenges/includes/header.html" with page_name="index" %}
         <h1>Months</h1>
         <ul>
         {% for month in months %}
